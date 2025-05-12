@@ -1,0 +1,13 @@
+bin/
+obj/
+*.user
+*.suo
+*.log
+*.sqlite
+.vs/
+*.db
+*.pdb
+*.cache
+*.exe
+*.dll
+*.config
