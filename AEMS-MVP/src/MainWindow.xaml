@@ -1,0 +1,43 @@
+<Window x:Class="AEMSApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Advanced Educational Material Sorter (AEMS)" Height="600" Width="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Curriculum TreeView -->
+        <TreeView Name="CurriculumTreeView" Grid.Column="0" Margin="10" />
+
+        <!-- Material File List -->
+        <ListView Name="MaterialListView" Grid.Column="1" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="File Name" Width="200" DisplayMemberBinding="{Binding FileName}" />
+                    <GridViewColumn Header="File Type" Width="100" DisplayMemberBinding="{Binding FileType}" />
+                    <GridViewColumn Header="Status" Width="100" DisplayMemberBinding="{Binding Status}" />
+                    <GridViewColumn Header="Topics" Width="200" DisplayMemberBinding="{Binding Topics}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!-- Buttons Panel -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Grid.ColumnSpan="2" >
+            <Button Name="LoadCurriculumButton" Content="Load/Process Curriculum PDF..." Margin="0,0,10,0" Width="200" />
+            <Button Name="ImportFilesButton" Content="Import Material Files..." Margin="0,0,10,0" Width="150" />
+            <Button Name="ImportFolderButton" Content="Import Material Folder..." Width="170" />
+        </StackPanel>
+
+        <!-- Status Bar -->
+        <StatusBar VerticalAlignment="Bottom" Grid.ColumnSpan="2">
+            <StatusBarItem>
+                <TextBlock Name="StatusTextBlock" Text="Ready" />
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <ProgressBar Name="ProgressBar" Width="200" Height="16" Minimum="0" Maximum="100" Visibility="Collapsed" />
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
